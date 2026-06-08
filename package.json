@@ -1,0 +1,27 @@
+{
+  "name": "light-clinic-ginza-lp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "sass src/scss/style.scss assets/css/style.css --style=compressed --no-source-map",
+    "build:img": "node scripts/convert-images.mjs",
+    "build:kv": "node scripts/extract-kv-assets.mjs",
+    "build:slices": "node scripts/slice-reference.mjs",
+    "build:body": "node scripts/slice-body.mjs",
+    "build": "npm run build:kv && npm run build:body && npm run build:css",
+    "dev": "concurrently \"sass src/scss/style.scss assets/css/style.css --watch --no-source-map\" \"node scripts/convert-images.mjs --watch\" \"browser-sync start --config bs-config.cjs\"",
+    "dev:img": "node scripts/convert-images.mjs --watch"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^10.0.3",
+    "sass": "^1.89.1",
+    "sharp": "^0.34.2"
+  }
+}
