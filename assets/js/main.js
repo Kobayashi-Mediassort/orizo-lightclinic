@@ -59,9 +59,61 @@
     },
     {
       rootMargin: "0px 0px -12% 0px",
-      threshold: 0.12
-    }
+      threshold: 0.12,
+    },
   );
 
   animatedTargets.forEach((target) => observer.observe(target));
+
+  const fadeinTargets = document.querySelectorAll(".fadein");
+
+  if (fadeinTargets.length > 0) {
+    const fadeinObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("scrollin");
+          fadeinObserver.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.1,
+      },
+    );
+
+    fadeinTargets.forEach((target) => fadeinObserver.observe(target));
+  }
+
+  const countupEl = document.querySelector(".countup");
+  if (countupEl) {
+    const target = parseInt(countupEl.textContent.replace(/,/g, ""), 10);
+    const duration = 500;
+
+    const runCountup = () => {
+      const start = performance.now();
+      const tick = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        countupEl.textContent = current.toLocaleString("ja-JP");
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const countupObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          runCountup();
+          countupObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    countupObserver.observe(countupEl);
+  }
 })();

@@ -1,5 +1,11 @@
 $base-width: 780px;
-$font-sans: "Noto Sans JP", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+$font-sans:
+  "Noto Sans JP",
+  system-ui,
+  -apple-system,
+  blinkmacsystemfont,
+  "Segoe UI",
+  sans-serif;
 $font-round: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
 $color-green: #009f9a;
 $color-green-dark: #007d78;
@@ -9,3 +15,30 @@ $color-yellow: #ffe45c;
 $color-text: #16403d;
 $color-muted: #5e7774;
 $color-line: #d2ece7;
+
+.fadein {
+  opacity: 0;
+  transform: translate(0, 100px);
+  transition: all 500ms;
+}
+
+.fadein-up {
+  transform: translate(0, 100px);
+}
+
+.fadein-down {
+  transform: translate(0, -100px);
+}
+
+.fadein-left {
+  transform: translate(-100px, 0);
+}
+
+.fadein-right {
+  transform: translate(50px, 0);
+}
+
+.scrollin {
+  opacity: 1;
+  transform: translate(0, 0);
+}
