@@ -11,6 +11,35 @@
     });
   });
 
+  const qaItems = document.querySelectorAll(".qa_box dl");
+
+  qaItems.forEach((item, index) => {
+    const question = item.querySelector("dt");
+    if (!question) return;
+
+    question.setAttribute("role", "button");
+    question.setAttribute("tabindex", "0");
+    question.setAttribute("aria-expanded", "false");
+    question.setAttribute("aria-controls", `qa-answer-${index + 1}`);
+
+    const answer = item.querySelector("dd");
+    if (answer) {
+      answer.id = `qa-answer-${index + 1}`;
+    }
+
+    const toggleItem = () => {
+      const isOpen = item.classList.toggle("is-open");
+      question.setAttribute("aria-expanded", String(isOpen));
+    };
+
+    question.addEventListener("click", toggleItem);
+    question.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      toggleItem();
+    });
+  });
+
   const animatedTargets = document.querySelectorAll(".section, .closing");
 
   if (!("IntersectionObserver" in window)) {
