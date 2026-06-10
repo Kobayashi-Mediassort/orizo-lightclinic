@@ -822,6 +822,24 @@ img {
         letter-spacing: -12px;
       }
     }
+
+    @media (max-width: 780px) {
+      margin: vw(80) auto vw(60);
+      width: vw(533);
+
+      img { width: 100%; }
+
+      .countup {
+        font-size: vw(96);
+        top: vw(50);
+        left: vw(51.5);
+        letter-spacing: vw(-3);
+
+        &::first-letter {
+          letter-spacing: vw(-12);
+        }
+      }
+    }
   }
 
   .youtube-section {
@@ -894,19 +912,10 @@ img {
     content: "";
     background:
       linear-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px),
-      #cfd6dc;
+      linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px), #cfd6dc;
     background-size: 34px 34px;
-    -webkit-mask-image: radial-gradient(
-      ellipse 460px 110px at 50% -6px,
-      transparent 0 109px,
-      #000 110px
-    );
-    mask-image: radial-gradient(
-      ellipse 60% 100px at 50% -6px,
-      transparent 100%,
-      #001 110px
-    );
+    -webkit-mask-image: radial-gradient(ellipse 460px 110px at 50% -6px, transparent 0 109px, #000 110px);
+    mask-image: radial-gradient(ellipse 60% 100px at 50% -6px, transparent 100%, #001 110px);
     pointer-events: none;
   }
 
@@ -993,16 +1002,8 @@ img {
 
     &::before {
       background-size: vw(34) vw(34);
-      -webkit-mask-image: radial-gradient(
-        ellipse vw(460) vw(110) at 50% vw(-6),
-        transparent 0 vw(109),
-        #000 vw(110)
-      );
-      mask-image: radial-gradient(
-        ellipse 60% vw(100) at 50% vw(-6),
-        transparent 100%,
-        #001 vw(110)
-      );
+      -webkit-mask-image: radial-gradient(ellipse vw(460) vw(110) at 50% vw(-6), transparent 0 vw(109), #000 vw(110));
+      mask-image: radial-gradient(ellipse 60% vw(100) at 50% vw(-6), transparent 100%, #001 vw(110));
     }
 
     .worry__triangles {
@@ -2804,8 +2805,7 @@ img {
     z-index: -1;
     content: "";
     background:
-      linear-gradient(#e5f6f5 1px, transparent 1px),
-      linear-gradient(90deg, #e5f6f5 1px, transparent 1px), #fff;
+      linear-gradient(#e5f6f5 1px, transparent 1px), linear-gradient(90deg, #e5f6f5 1px, transparent 1px), #fff;
     background-size: 34px 34px;
   }
   .step-area {
@@ -2890,12 +2890,12 @@ img {
       dd {
         display: flex;
         align-items: center;
-        gap: 25px;
+        gap: 20px;
       }
       dt {
         cursor: pointer;
         justify-content: space-between;
-        padding: 30px 20px;
+        padding: 30px 40px;
         user-select: none;
         &:focus-visible {
           outline: 4px solid #f6691a;
@@ -2907,7 +2907,7 @@ img {
       }
       dd {
         max-height: 0;
-        padding: 0 20px;
+        padding: 0 40px;
         border-top: 1px solid #c9c9c9;
         opacity: 0;
         overflow: hidden;
@@ -2919,10 +2919,10 @@ img {
       i {
         display: block;
         flex: 0 0 auto;
-        width: 47px;
+        width: 40px;
         color: #008684;
         font-family: "avenir-lt-pro", sans-serif;
-        font-size: 40px;
+        font-size: 50px;
         font-style: normal;
         font-weight: 800;
         line-height: 1;
@@ -3021,11 +3021,11 @@ img {
 
         dt,
         dd {
-          gap: vw(25);
+          gap: vw(20);
         }
 
         dt {
-          padding: vw(30) vw(20);
+          padding: vw(30) vw(40);
           &:focus-visible {
             outline-width: vw(4);
             outline-offset: vw(-8);
@@ -3033,12 +3033,12 @@ img {
         }
 
         dd {
-          padding: 0 vw(20);
+          padding: 0 vw(40);
         }
 
         i {
-          width: vw(47);
-          font-size: vw(40);
+          width: vw(40);
+          font-size: vw(50);
         }
 
         p {
