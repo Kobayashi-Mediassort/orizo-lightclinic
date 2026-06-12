@@ -30,6 +30,94 @@ img {
   filter: drop-shadow(7px 12px 20px rgba(0, 0, 0, 0.1));
 }
 
+.h2_a {
+  margin: 0;
+  color: #000;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.5;
+  .small {
+    font-size: 56px;
+    color: #000;
+    font-weight: 500;
+  }
+  .en {
+    display: block;
+    margin-bottom: 24px;
+    color: #008684;
+    font-family: "avenir-lt-pro", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.78px;
+    padding-left: 65px;
+    position: relative;
+    &:before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background: #00a299;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -2.5px;
+      margin: auto;
+    }
+    &:after {
+      content: "";
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, #00a299 0%, #00ddd0 100%);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+  }
+  .bigen {
+    font-size: 80px;
+    color: #008684;
+    font-family: "avenir-lt-pro", sans-serif;
+    font-weight: 500;
+  }
+
+  .c-b {
+    color: #008684;
+  }
+
+  @media (max-width: 780px) {
+    font-size: vw(64);
+
+    .small {
+      font-size: vw(56);
+    }
+
+    .en {
+      margin-bottom: vw(24);
+      font-size: vw(24);
+      letter-spacing: vw(0.78);
+      padding-left: vw(65);
+
+      &:before {
+        width: vw(5);
+        height: vw(5);
+        left: vw(-2.5);
+      }
+
+      &:after {
+        width: vw(50);
+        height: vw(1);
+      }
+    }
+
+    .bigen {
+      font-size: vw(80);
+    }
+  }
+}
+
 .lp {
   position: relative;
   width: 780px;
@@ -60,12 +148,13 @@ img {
   &::before {
     position: absolute;
     right: 0;
-    bottom: 105px;
+    bottom: 60px;
     left: 0;
-    height: 120px;
+    height: 260px;
     content: "";
     background: #eef9f8;
     border-radius: 100% 100% 0 0 / 80% 80% 0 0;
+    z-index: 2;
   }
 
   .kv__logo {
@@ -260,8 +349,8 @@ img {
     height: vw(1200);
 
     &::before {
-      bottom: vw(105);
-      height: vw(120);
+      bottom: vw(60);
+      height: vw(260);
     }
 
     .kv__logo {
@@ -658,6 +747,11 @@ img {
     .contact-cta__tel {
       gap: vw(8);
 
+      i img {
+        width: vw(60);
+        height: vw(60);
+      }
+
       strong {
         font-size: vw(64);
       }
@@ -827,7 +921,9 @@ img {
       margin: vw(80) auto vw(60);
       width: vw(533);
 
-      img { width: 100%; }
+      img {
+        width: 100%;
+      }
 
       .countup {
         font-size: vw(96);
@@ -912,10 +1008,19 @@ img {
     content: "";
     background:
       linear-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px), #cfd6dc;
+      linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px),
+      #cfd6dc;
     background-size: 34px 34px;
-    -webkit-mask-image: radial-gradient(ellipse 460px 110px at 50% -6px, transparent 0 109px, #000 110px);
-    mask-image: radial-gradient(ellipse 60% 100px at 50% -6px, transparent 100%, #001 110px);
+    -webkit-mask-image: radial-gradient(
+      ellipse 460px 110px at 50% -6px,
+      transparent 0 109px,
+      #000 110px
+    );
+    mask-image: radial-gradient(
+      ellipse 60% 100px at 50% -6px,
+      transparent 100%,
+      #001 110px
+    );
     pointer-events: none;
   }
 
@@ -1002,8 +1107,16 @@ img {
 
     &::before {
       background-size: vw(34) vw(34);
-      -webkit-mask-image: radial-gradient(ellipse vw(460) vw(110) at 50% vw(-6), transparent 0 vw(109), #000 vw(110));
-      mask-image: radial-gradient(ellipse 60% vw(100) at 50% vw(-6), transparent 100%, #001 vw(110));
+      -webkit-mask-image: radial-gradient(
+        ellipse vw(460) vw(110) at 50% vw(-6),
+        transparent 0 vw(109),
+        #000 vw(110)
+      );
+      mask-image: radial-gradient(
+        ellipse 60% vw(100) at 50% vw(-6),
+        transparent 100%,
+        #001 vw(110)
+      );
     }
 
     .worry__triangles {
@@ -1636,7 +1749,7 @@ img {
 }
 
 .reassurance {
-  padding: 28px 39px 128px;
+  padding: 28px 39px 0;
   text-align: center;
   position: relative;
   z-index: 3;
@@ -1703,7 +1816,7 @@ img {
   }
 
   @media (max-width: 780px) {
-    padding: vw(28) vw(39) vw(128);
+    padding: vw(28) vw(39) vw(0);
 
     h2 {
       margin: 0 0 vw(130);
@@ -1911,7 +2024,7 @@ img {
   position: relative;
   z-index: 2;
   background-color: #20c3ba;
-  padding: 0 0 140px;
+  padding: 80px 0 140px;
   .sec5_bg {
     position: absolute;
     top: 0;
@@ -1970,7 +2083,7 @@ img {
   }
 
   @media (max-width: 780px) {
-    padding: 0 0 vw(140);
+    padding: vw(80) 0 vw(140);
 
     .dendritic__hero {
       img {
@@ -2210,6 +2323,10 @@ img {
     font-weight: 700;
     line-height: 1.3;
     text-align: center;
+    span {
+      font-weight: 500;
+      color: #333;
+    }
   }
 
   .therapy-detail__block {
@@ -2335,7 +2452,7 @@ img {
       &::after {
         position: absolute;
         top: 0;
-        right: -35px;
+        right: -34px;
         width: 0;
         height: 0;
         content: "";
@@ -2635,7 +2752,7 @@ img {
         border-radius: vw(20) 0 0 vw(20);
         font-size: vw(40);
         &::after {
-          right: vw(-35);
+          right: vw(-34);
           border-top-width: vw(64);
           border-bottom-width: vw(64);
           border-left-width: vw(35);
@@ -2805,8 +2922,55 @@ img {
     z-index: -1;
     content: "";
     background:
-      linear-gradient(#e5f6f5 1px, transparent 1px), linear-gradient(90deg, #e5f6f5 1px, transparent 1px), #fff;
+      linear-gradient(#e5f6f5 1px, transparent 1px),
+      linear-gradient(90deg, #e5f6f5 1px, transparent 1px), #fff;
     background-size: 34px 34px;
+  }
+  .step-h2 {
+    position: relative;
+    text-align: center;
+    padding: 117px 40px 50px;
+    z-index: 2;
+    .fukidashi {
+      color: #008684;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.5;
+      padding: 10px 27px;
+      text-align: center;
+      width: fit-content;
+      position: relative;
+      margin: 0 auto 18px;
+    }
+    .t1 {
+      color: #fff;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+    }
+    .t2 {
+      color: #ffeb55;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 1.92px;
+      span {
+        font-family: "avenir-lt-pro", sans-serif;
+        color: #ffeb55;
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 800;
+      }
+    }
+    img {
+      position: absolute;
+      z-index: -1;
+      &.abs1 {
+        top: 0;
+        left: 0;
+      }
+    }
   }
   .step-area {
     display: flex;
@@ -2968,6 +3132,29 @@ img {
 
     &::before {
       background-size: vw(34) vw(34);
+    }
+
+    .step-h2 {
+      padding: vw(117) vw(40) vw(50);
+
+      .fukidashi {
+        font-size: vw(32);
+        padding: vw(10) vw(27);
+        margin: 0 auto vw(18);
+      }
+
+      .t1 {
+        font-size: vw(32);
+      }
+
+      .t2 {
+        font-size: vw(64);
+        letter-spacing: vw(1.92);
+
+        span {
+          font-size: vw(80);
+        }
+      }
     }
 
     .step-area {
